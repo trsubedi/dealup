@@ -1,0 +1,51 @@
+<p> firstname : <%= @user.first_name %> </p>
+<p> lastname : <%= @user.last_name %> </p>
+<p> email address : <%= @user.email %> </p>
+<p> member since : <%= @user.created_at %> </p>
+<button type="button" data-toggle="modal" data-target="#update">update profile </button><br>
+<%= button_to "sell your items here", create_items_path %>
+
+
+<div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow:visible">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content motra">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title text" id="myModalLabel">Update Info</h4>
+	      </div>
+	      <div class="modal-body">
+	      
+			<%= form_for @user do |f| %>
+			    <div class="form-group">
+			     <span> <%= f.text_field :first_name, placeholder: "First name", class: 'form-control' %></span>
+			    </div> <br>
+			    <div class="form-group">
+			     <span> <%= f.text_field :last_name, placeholder: "Last name", class: 'form-control' %></span>
+			    </div> <br>
+			    
+			    <div class="form-group">
+			      <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+			    </div><br>
+			    <div class="form-group">
+			      <%= f.password_field :password, placeholder: "New Password", class: 'form-control' %>
+			    </div><br>
+			    <div class="form-group">
+			      <%= f.password_field :password_confirmation, placeholder: "Confirm New Password", class: 'form-control' %>
+			    </div><br>
+			    <%= f.submit "Update", class: 'btn btn-primary' %>
+			<% end %> 
+		</div>
+
+				<div class="modal-footer">
+					<span class="text">
+            		Already have an account
+            		</span>
+            		<button data-toggle="modal" data-target="#loginModal" data-dismiss="modal" style="display: inline" class="btn btn-default success">
+                 	click Here
+               		</button>
+        		</div>
+
+	    </div>
+	  </div>
+	</div>
+	</div>

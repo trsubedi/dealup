@@ -1,0 +1,81 @@
+<div class="welcome">
+	<!-- signUpModal -->
+	
+	<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow:visible">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content motra">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title text" id="myModalLabel">Create an account</h4>
+	      </div>
+	      <div class="modal-body">
+	      
+			<%= form_for @user do |f| %>
+			    <div class="form-group">
+			     <span> <%= f.text_field :first_name, placeholder: "First name", class: 'form-control' %></span>
+			    </div> <br>
+			    <div class="form-group">
+			     <span> <%= f.text_field :last_name, placeholder: "Last name", class: 'form-control' %></span>
+			    </div> <br>
+			    
+			    <div class="form-group">
+			      <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+			    </div><br>
+			    <div class="form-group">
+			      <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
+			    </div><br>
+			    <div class="form-group">
+			      <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control' %>
+			    </div><br>
+			    <%= f.submit "Sign Up", class: 'btn btn-primary' %>
+			<% end %> 
+		</div>
+
+				<div class="modal-footer">
+					<span class="text">
+            		Already have an account
+            		</span>
+            		<button data-toggle="modal" data-target="#loginModal" data-dismiss="modal" style="display: inline" class="btn btn-default success">
+                 	click Here
+               		</button>
+        		</div>
+
+	    </div>
+	  </div>
+	</div>
+	</div>
+
+	<!-- Login Modal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow:visible">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content motra">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title text" id="myModalLabel">Login</h4>
+	      </div>
+		      <div class="modal-body">
+		      
+				<%= form_for @user, url: sessions_path do |f| %>
+				    <div>
+				      <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+				    </div><br>
+				    <div>
+				      <%= f.password_field :password, placeholder: "Password" , class: 'form-control'%>
+				    </div><br>
+				    <%= f.submit "Login" , class: 'btn btn-primary'%>
+				<% end %> 
+			  </div>
+			<div class="modal-footer">
+				<span class="text">
+            New to Make-a-Deal?
+            	</span>
+            <button data-toggle="modal" data-target="#signUpModal" data-dismiss="modal" style="display: inline" class="btn btn-sm btn-default success">
+                Register Here
+               </button>
+            
+        	</div>	
+
+	    </div>
+	  </div>
+	</div>
+</div>

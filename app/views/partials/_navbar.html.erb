@@ -1,7 +1,29 @@
-<nav class="navbar navbar-inverse navbar-fixed-top pos-relative green" id = "navBar">
-    <div class="container">
+<nav class="navbar navbar-inverse pos-relative green" id ="navBar">
+  <div class="container">
     	<div class="navbar-header">
-        	<a class="navbar-brand" href="/home"><span id="navtext">MakeDeal<span></a> 
-        </div>   
-    </div>
+        	<a class="navbar-brand" href="/home"><span id="navtext">Make-a-Deal</span></a> 
+      </div>
+      <div id="profile-dashboard">
+          <% if current_user %>
+          <% @user = @current_user %>
+      <div class="media-right pull-right">
+            <h4 style="display: inline"> Welcome <%= link_to @user.first_name, user_path(@user.id), :style => "color: white;" %> </h4>
+                <div class="button-group" role="group" style="display: inline">
+                   <%= button_to "Logout", logout_path, method: "get", class: "red navbar-btn btn btn-danger" %>
+                </div>
+      </div>
+  </div>
+        <% else %>
+        <div id="init-user-btns">
+               <button data-toggle="modal" data-target="#loginModal" style="display: inline"
+                   class="btn btn-primary navbar-right navbar-btn">
+                 Log In
+               </button>
+               <button data-toggle="modal" data-target="#signUpModal" style="display: inline" class="btn btn-primary navbar-right navbar-btn">
+                 Sign Up
+               </button>
+        </div>
+        <% end %>
+  </div>
 </nav>
+
