@@ -11,7 +11,7 @@
   <% end %>
 
 
-<div class="container-fluid col-md-2 panel panel-default">
+<div class="container-fluid col-md-2 panel panel-default cat">
     <div class="panel-heading">
         <h4 class="panel-title">Browse Categories</h4>
     </div>
@@ -25,25 +25,25 @@
 </div>
 
 
-<div>
+<div class="cat">
   <div class="panel-panel-default">
     <h2> Browse Items</h2>
   </div>
 
   
-  <div class="col-lg-10">
+  <div>
     <% @item.each do |item| %>
 
-      <div class='col-md-3'>
+      <div class='col-md-3 box'>
             <div id="item-img">
                 <img class="img-show"src="<%= item.image %>">
             </div>
           <a data-no-turbolink="true" href="/items/<%= item.id %>"> <%= item.title %> </a><br>
           
-          <%= item.price %><br>
-          <%= item.condition %><br>
-          <%= item.description %><br>
-          <%= item.item_location %><br>
+          <p>Price: $<%= item.price %></p>
+          <p>condition: <%= item.condition %></p>
+          <p>description: <%= item.description %></p>
+          <p>Located at: <%= item.item_location %></p>
       </div>
     <% end %>
 </div>
