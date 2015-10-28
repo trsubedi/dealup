@@ -11,19 +11,17 @@
   <% end %>
 
 
-  <div class="container-fluid col-md-2">
-    <ul class='list-unstyled'>
-    	<% @category.each do |category| %>
-        <li> <a href="/categories/<%= category.id %>/items"> <%= category.name %> </a> </li>
+<div class="container-fluid col-md-2">
+  	<% @category.each do |f| %>
+      <ul><%= f.name %></ul>
       <% end %>
-    </ul>
   </div>
     <div>
       <h2> Browse Items</h2>
 
       
       <div class="col-md-10">
-        <% @item.each do |item| %>
+        <% @items.each do |item| %>
 
           <div class='col-md-3'>
             <div id="item-img">

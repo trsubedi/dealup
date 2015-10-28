@@ -5,5 +5,6 @@ class WelcomeController < ApplicationController
 	
 	def views
 		@category = Category.all
+		@item = Item.all
 	end
 end

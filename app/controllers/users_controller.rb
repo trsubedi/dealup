@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
 
 	def create
-		user_params = params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+		user_params = params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :location)
 	    @user = User.create(user_params)
 	    login(@user)
 	    redirect_to views_path
 	end
 
 	def show
-    @user = User.find(params[:id])
+    	@user = User.find(params[:id])
 	end
+
 	def update
 		# binding.pry
         user_id = params[:id]
@@ -22,6 +23,15 @@ class UsersController < ApplicationController
 
         #redirect to show
         redirect_to "/users/#{user_id}"
+    end
+
+    def userItems
+    	if params[:id].to_i == session[:user_id].to_i
+    		@user = User.find(params[:id])
+	    	render :useritems
+	    else
+	    	redirect_to user_path(params[:id])
+	    end
     end
 
 end

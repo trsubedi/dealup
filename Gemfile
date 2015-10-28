@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'underscore-rails'
+
 gem "font-awesome-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -40,6 +44,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'
+  
 end
 
 group :development do

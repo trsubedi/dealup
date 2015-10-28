@@ -1,9 +1,11 @@
+<%= link_to "Browse all items", views_path %>
 <p> firstname : <%= @user.first_name %> </p>
 <p> lastname : <%= @user.last_name %> </p>
 <p> email address : <%= @user.email %> </p>
 <p> member since : <%= @user.created_at %> </p>
-<button type="button" data-toggle="modal" data-target="#update">update profile </button><br>
-<%= button_to "sell your items here", create_items_path %>
+<button type="button" data-toggle="modal" data-target="#update">update profile </button><br><br>
+<button><%= link_to "sell your items here", create_items_path %></button>
+<button><%= link_to "see your items here", user_items_path(@user.id) %></button>
 
 
 <div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow:visible">
