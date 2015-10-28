@@ -11,13 +11,18 @@
   <% end %>
 
 
-  <div class="container-fluid col-md-2">
-    <ul class='list-unstyled'>
-    	<% @category.each do |category| %>
-        <li> <a href="/categories/<%= category.id %>/items"> <%= category.name %> </a> </li>
-      <% end %>
-    </ul>
-  </div>
+ <div class="container-fluid col-md-2 panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">Browse Categories</h4>
+    </div>
+      <div class="panel-body">
+        <ul class='list-unstyled'>
+          <% @category.each do |category| %>
+            <li> <a href="/categories/<%= category.id %>/items"> <%= category.name %> </a> </li>
+          <% end %>
+        </ul>
+      </div>
+</div>
     <div>
       <h2> Browse Items</h2>
 

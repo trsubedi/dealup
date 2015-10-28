@@ -1,34 +1,34 @@
 <%= form_for [@item] do |f| %>
         <div>
-          <%= f.text_field :title, placeholder: "name your item" %>
+          <%= f.text_field :title, placeholder: "name your item", class: 'form-control' %>
 
         </div> <br>
         <div>
-          <%= f.text_field :price, placeholder: "Enter amount" %>
+          <%= f.text_field :price, placeholder: "Enter amount", class: 'form-control' %>
         </div><br>
         <div>
-          <%= f.text_field :description, placeholder: "description of the item" %>
+          <%= f.text_field :description, placeholder: "description of the item", class: 'form-control' %>
         </div><br>
         <div>
           <%= f.select :category_id, 
              [["Electronics",1], ["Antiques",2], ["Appliances",3], ["Arts & Crafts",4], ["Audio Equipment",5], ["Auto parts",6], ["Tickets",7], ["Video Games",8], ["Sports & Outdoors",9],
               ["Baby & kids",10], ["Beauty & Health",11], ["Bicycles",12], ["Books & Magazines",13], ["Furniture",14], ["Motorcycles",15],["Musical Instruments",16], ["Photography",17], ["TV's",18],
-              ["Motorcycles",19], ["Jewelry",20], ["services",21], ["Cell Phones",22], ["Clothing",23], ["Collectibles",24], ["Boats & Marine",25], ["Cars & Trucks",26]] %>
+              ["Motorcycles",19], ["Jewelry",20], ["services",21], ["Cell Phones",22], ["Clothing",23], ["Collectibles",24], ["Boats & Marine",25], ["Cars & Trucks",26]], class: 'form-control' %>
 
         
         </div><br>
         <div>
-          <%= f.text_field :condition, placeholder: "condition" %>
+          <%= f.text_field :condition, placeholder: "condition", class: 'form-control' %>
         </div><br>
         <div>
-          <%= f.text_field :item_location, :value => @user.location%>
-          <%= f.hidden_field(:user_id, :value => @user.id) %>
+          <%= f.text_field :item_location, :value => @user.location, class: 'form-control'%>
+          <%= f.hidden_field(:user_id, :value => @user.id)%>
         </div><br>
         <div>
           <input type="hidden" role="uploadcare-uploader" name="item[image]"
           data-crop="disabled"
           data-preview-step="true"
           data-images-only="true" />
-        </div>
+        </div><br>
         <%= f.submit "Post item" %>
         <% end %> 

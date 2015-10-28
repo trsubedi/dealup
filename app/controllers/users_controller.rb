@@ -32,6 +32,6 @@ class UsersController < ApplicationController
 	    else
 	    	redirect_to user_path(params[:id])
 	    end
-    end
 
+    end
 end

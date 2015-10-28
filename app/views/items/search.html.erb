@@ -11,13 +11,28 @@
   <% end %>
 
 
-<div class="container-fluid col-md-2">
-  	<% @category.each do |f| %>
-      <ul><%= f.name %></ul>
+<div class="container-fluid col-md-2 panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">Browse Categories</h4>
+    </div>
+      <div class="panel-body">
+        <ul class='list-unstyled'>
+          <% @category.each do |category| %>
+            <li> <a href="/categories/<%= category.id %>/items"> <%= category.name %> </a> </li>
+          <% end %>
+        </ul>
+      </div>
+</div>
+        
+        <% if @items.present? %>
+       <h2> Items located near: <%=@items[0].item_location %></h2>
+            <% else %>
+          <p>There are no <%= params[:search] %> listed in <%= params[:location] %>.</p>
+          <p>Search items in another nearest location.</p>
       <% end %>
-  </div>
-    <div>
-      <h2> Browse Items</h2>
+
+
+
 
       
       <div class="col-md-10">

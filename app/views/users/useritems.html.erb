@@ -1,8 +1,46 @@
-sdkfskdhfd
+
 <% @user.items.each do |item| %>
-	<%= item.title %>
 	<div id="item-img">
           <img class="img-show"src="<%= item.image %>">
     </div>
-    <%= item.item_location %>
+    title:<%= item.title %><br>
+    Description: <%= item.item_location %><br>
+    Location:<%= item.item_location %><br>
+    <button type="button" data-toggle="modal" data-target="#updateitem">update item</button>
+
+
+
+<!-- Modal begins -->
+<div class="modal fade" id="updateitem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="overflow:visible">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      	<div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title text" id="myModalLabel">Update Info</h4>
+	      	</div>
+	      	<div class="modal-body">
+	      
+				<%= form_for Item.new do |f| %>
+				    <div class="form-group">
+				     <span> <%= f.text_field :title, value: item.title, class: 'form-control' %></span>
+				    </div> <br>
+				    <div class="form-group">
+				     <span> <%= f.text_field :price, placeholder: "Enter new amount", class: 'form-control' %></span>
+				    </div> <br>
+				    
+				    <div class="form-group">
+				      <%= f.text_field :description, placeholder: "Enter description", class: 'form-control' %>
+				    </div><br>
+				    
+				    <div class="form-group">
+				      <%= f.password_field :condition, placeholder: "what is your item condition?", class: 'form-control' %>
+				    </div><br>
+				    <%= f.submit "Update", class: 'btn btn-primary' %>
+				<% end %> 
+			</div>
+		</div>
+	  </div>
+	</div>
+</div>
+
 <% end %>
