@@ -4,7 +4,7 @@
           <img class="img-show"src="<%= item.image %>">
     </div>
     title:<%= item.title %><br>
-    Description: <%= item.item_location %><br>
+    Description: <%= item.description %><br>
     Location:<%= item.item_location %><br>
     <button type="button" data-toggle="modal" data-target="#updateitem">update item</button>
 
@@ -20,9 +20,9 @@
 	      	</div>
 	      	<div class="modal-body">
 	      
-				<%= form_for Item.new do |f| %>
+				<%= form_for item, url: update_items_path, html: { method: :patch } do |f| %>
 				    <div class="form-group">
-				     <span> <%= f.text_field :title, value: item.title, class: 'form-control' %></span>
+				     <span> <%= f.text_field :title, placeholder: "Enter name", class: 'form-control' %></span>
 				    </div> <br>
 				    <div class="form-group">
 				     <span> <%= f.text_field :price, placeholder: "Enter new amount", class: 'form-control' %></span>
@@ -33,7 +33,7 @@
 				    </div><br>
 				    
 				    <div class="form-group">
-				      <%= f.password_field :condition, placeholder: "what is your item condition?", class: 'form-control' %>
+				      <%= f.text_field :condition, placeholder: "what is your item condition?", class: 'form-control' %>
 				    </div><br>
 				    <%= f.submit "Update", class: 'btn btn-primary' %>
 				<% end %> 

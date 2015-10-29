@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   get "/users/:id/items", to: "users#userItems", as: "user_items"
 
-  patch "/users/:id/items", to: "items#update", as: "update_items"
+  patch "/users/:id/items", to: "items#updateItems", as: "update_items"
 
   get "/categories/:id/items", to: "items#index", as: "display_cat"
 

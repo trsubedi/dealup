@@ -21,9 +21,7 @@ class ItemsController < ApplicationController
 	    redirect_to views_path
 	end
 
-	def update
-		updateditems = params.require(:item).permit(:title, :price, :description, :condition)
-	end
+	
 
 	def show
 		item_id = params[:id]
@@ -34,6 +32,15 @@ class ItemsController < ApplicationController
   			marker.lat item.latitude
   			marker.lng item.longitude
   		end
+	end
+
+	def updateItems
+    	user_id = params[:id]
+    	@user= User.find(user_id)
+		updateditems = params.require(:item).permit(:title, :price, :description, :condition, :item_location, :image)
+		
+		@item = @user.items.update(updateItems)
+		redirect_to "/users/#{user_id}/items"
 	end
 
 	def search
